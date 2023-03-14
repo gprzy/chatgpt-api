@@ -14,47 +14,41 @@ parser.add_argument(
     '--with_context', '-c', 
     action='store_const', 
     const=True, 
-    default=False, 
-    required=False
+    default=False
 )
 
 # input params
 parser.add_argument(
     '--from_file', '-f',
     type=str,
-    default=None,
-    required=False
+    default=None
 )
 
 parser.add_argument(
     '--interactive', '-i',
     action='store_const',
     const=True,
-    default=False,
-    required=False
+    default=False
 )
 
 # output params
 parser.add_argument(
     '--output_file', '-o',
     type=str,
-    default=None,
-    required=False
+    default=None
 )
 
 parser.add_argument(
     '--output_terminal', '-p', 
     action='store_const', 
     const=True, 
-    default=False, 
-    required=False
+    default=False
 )
 
 # model
 parser.add_argument(
     '--model', '-m', 
     default='gpt-3.5-turbo', 
-    required=False, 
     required=False
 )
 
