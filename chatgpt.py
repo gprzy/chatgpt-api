@@ -5,7 +5,7 @@ import openai
 import argparse
 
 from dotenv import load_dotenv
-from chatgpt_utils.chatgpt import *
+from src.chatgpt_utils import *
 
 
 parser = argparse.ArgumentParser(description='ChatGPT API interface')
@@ -14,7 +14,7 @@ parser.add_argument(
     '--with_context', '-c', 
     action='store_const', 
     const=True, 
-    default=False
+    default=True
 )
 
 # input params
