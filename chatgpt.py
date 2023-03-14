@@ -66,12 +66,12 @@ if __name__ == '__main__':
 
     if args.from_file:
         gpt_from_file(
-            apply_context=args.apply_context,
+            apply_context=args.with_context,
             output_terminal=args.output_terminal
         )
 
     elif args.interactive:
         gpt_interactive(
-            apply_context=args.apply_context,
+            apply_context=args.with_context,
             output_file=args.output_file
         )
