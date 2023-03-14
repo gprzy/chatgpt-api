@@ -5,7 +5,7 @@ import openai
 import argparse
 
 from dotenv import load_dotenv
-from chatgpt import *
+from chatgpt_utils.chatgpt import *
 
 
 parser = argparse.ArgumentParser(description='ChatGPT API interface')
