@@ -6,6 +6,7 @@ import argparse
 
 from dotenv import load_dotenv
 from src.chatgpt_utils import *
+from src.colors import Colors
 
 
 parser = argparse.ArgumentParser(description='ChatGPT API interface')
@@ -63,6 +64,10 @@ args = parser.parse_args()
 if __name__ == '__main__':
     load_dotenv()
     openai.api_key = os.environ['GPT_API_KEY']
+
+    # print logo
+    with open('./assets/logo.txt', 'r') as f:
+        print(f'{Colors.OKGREEN}{f.read()}{Colors.ENDC}\n')
 
     if args.from_file:
         gpt_from_file(
