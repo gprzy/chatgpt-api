@@ -82,7 +82,7 @@ def gpt_from_file(apply_context=True,
         )
 
         if output_terminal:
-            print('\n' + '-'*80)
+            print('\n' + {Colors.BOLD} + '-'*80 + {Colors.ENDC})
 
             print(f'{Colors.WARNING}[Question]{Colors.ENDC}')
             print(f'{Colors.OKBLUE}>> You:{Colors.ENDC}')
@@ -130,7 +130,7 @@ def gpt_interactive(apply_context=True,
     ]
 
     while True:
-        print('\n' + '-'*80)
+        print('\n' + {Colors.BOLD} + '-'*80 + {Colors.ENDC})
 
         print(f'{Colors.WARNING}[Question]{Colors.ENDC}')
         prompt = input(f'{Colors.OKBLUE}>> You:{Colors.ENDC}\n')
