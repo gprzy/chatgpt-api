@@ -65,18 +65,21 @@ if __name__ == '__main__':
     load_dotenv()
     openai.api_key = os.environ['GPT_API_KEY']
 
+    print(args)
+
     # print logo
     with open('./assets/logo.txt', 'r') as f:
         print(f'{Colors.OKGREEN}{f.read()}{Colors.ENDC}\n')
 
+    params = {
+        'apply_context': args.with_context,
+        'output_terminal': args.output_terminal,
+        'output_file': args.output_file,
+        'model': args.model
+    }
+
     if args.from_file:
-        gpt_from_file(
-            apply_context=args.with_context,
-            output_terminal=args.output_terminal
-        )
+        gpt_from_file(**params)
 
     elif args.interactive:
-        gpt_interactive(
-            apply_context=args.with_context,
-            output_file=args.output_file
-        )
+        gpt_interactive(**params)

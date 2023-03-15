@@ -1,0 +1,14 @@
+[
+    {
+        "prompt": "Can you tell me how many days have in each month of the year?",
+        "answer": "Sure, here are the number of days in each month of the year:\n\nJanuary - 31 days\nFebruary - 28 (or 29 in leap years)\nMarch - 31 days\nApril - 30 days\nMay - 31 days\nJune - 30 days\nJuly - 31 days\nAugust - 31 days\nSeptember - 30 days\nOctober - 31 days\nNovember - 30 days\nDecember - 31 days"
+    },
+    {
+        "prompt": "How many seconds have in one year?",
+        "answer": "One year has 31,536,000 seconds."
+    },
+    {
+        "prompt": "What is the speed of light?",
+        "answer": "The speed of light is approximately 299,792,458 meters per second in a vacuum."
+    }
+]
