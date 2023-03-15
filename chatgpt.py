@@ -15,7 +15,7 @@ parser.add_argument(
     '--with_context', '-c', 
     action='store_const',
     const=True,
-    default=True
+    default=False
 )
 
 # input params
@@ -79,6 +79,7 @@ if __name__ == '__main__':
     }
 
     if args.from_file:
+        params['prompts_path'] = args.from_file
         gpt_from_file(**params)
 
     elif args.interactive:

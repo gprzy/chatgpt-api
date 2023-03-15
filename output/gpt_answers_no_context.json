@@ -1,0 +1,14 @@
+[
+    {
+        "prompt": "What is the speed of light?",
+        "answer": "The speed of light is approximately 299,792,458 meters per second (or about 186,282 miles per second). It is considered a fundamental constant of nature and is denoted by the symbol \"c\"."
+    },
+    {
+        "prompt": "Now can you tell me the answer in miliseconds?",
+        "answer": "One millisecond (ms) is equivalent to 1/1000th of a second. If we want to convert a larger unit of time, such as seconds or minutes, to milliseconds, we would simply multiply by 1000. For example, one second is equivalent to 1000 milliseconds (1 x 1000) and one minute is equivalent to 60,000 milliseconds (60 x 1000). So, I need to know what unit of time you want me to convert to milliseconds."
+    },
+    {
+        "prompt": "What is the best option, the first one or the second?",
+        "answer": "Without any context or information about what the options are, it is impossible for me to determine which one is the best. Can you please provide more information or details about the options you are referring to?"
+    }
+]

@@ -33,7 +33,7 @@ def save_to_file(prompt,
         }
 
         content.append(insertion)
-        f.write(json.dumps(content))
+        f.write(json.dumps(content, indent=4))
 
 
 def gpt_answer(messages, 
@@ -58,10 +58,11 @@ def gpt_answer(messages,
 
 
 def gpt_from_file(apply_context=True,
+                  prompts_path='./input/prompts.json',
                   output_terminal=False,
                   output_file=None,
                   model='gpt-3.5-turbo'):
-    prompts = load_prompts()
+    prompts = load_prompts(prompts_path=prompts_path)
 
     print(f'{Colors.HEADER}[PROCESS STARTED]{Colors.ENDC}')
 
@@ -76,12 +77,18 @@ def gpt_from_file(apply_context=True,
         message = {'role': 'user', 'content': prompt}
         messages.append(message)
 
-        # getting answer
-        answer, messages = gpt_answer(
-            messages=messages,
-            apply_context=apply_context,
-            model=model
-        )
+        if apply_context:
+            answer, messages = gpt_answer(
+                messages=messages,
+                apply_context=apply_context,
+                model=model
+            )
+        else:
+            answer = gpt_answer(
+                messages=messages,
+                apply_context=apply_context,
+                model=model
+            )
 
         if output_terminal:
             print('\n' + Colors.BOLD + '-'*80 + Colors.ENDC)
@@ -103,7 +110,7 @@ def gpt_from_file(apply_context=True,
 
         # if context is not applied,
         # messages is restarted
-        if not apply_context:
+        if apply_context==False:
             messages = [
                 {
                     'role': 'system',

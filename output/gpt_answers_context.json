@@ -1,0 +1,14 @@
+[
+    {
+        "prompt": "What is the speed of light?",
+        "answer": "The speed of light in a vacuum is approximately 299,792,458 meters per second (or about 186,282 miles per second). It is denoted by the symbol 'c' in scientific equations."
+    },
+    {
+        "prompt": "Now can you tell me the answer in miliseconds?",
+        "answer": "Sure! The speed of light in a vacuum is approximately 299,792,458 meters per second or 299,792,458,000 meters per millisecond (ms). Therefore, in milliseconds, the speed of light is equal to approximately 299,792.458 kilometers per millisecond."
+    },
+    {
+        "prompt": "What is the best option, the first one or the second?",
+        "answer": "I provided the same information in both responses, only with different units of measurement. The best option depends on what units you need to use in your specific situation. If you need a more precise answer, it might be better to use meters per second, but if you need a more practical measure, kilometers per millisecond might be more useful."
+    }
+]
