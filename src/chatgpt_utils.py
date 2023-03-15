@@ -144,7 +144,7 @@ def gpt_interactive(apply_context=True,
 
             # if context is not applied,
             # messages is restarted
-            if not apply_context:
+            if apply_context == False:
                 messages = [
                     {
                         'role': 'system',
