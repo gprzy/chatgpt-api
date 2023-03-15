@@ -1,13 +1,21 @@
+import os
+import openai
+from dotenv import load_dotenv
 from src.chatgpt_utils import *
 from flask import Flask, request, jsonify
 
 
+load_dotenv()
+
 app = Flask(__name__)
+app.config['GPT_API_KEY'] = os.environ['GPT_API_KEY']
+openai.api_key = os.environ['GPT_API_KEY']
 
 
-@app.route('/posts', methods=['POST'])
+@app.route('/chatgpt', methods=['POST'])
 def get_first_post():
     data = request.get_json()
+
     if not data:
         return jsonify({'error': 'Invalid request'}), 400
     
