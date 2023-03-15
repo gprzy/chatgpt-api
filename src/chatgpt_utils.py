@@ -9,16 +9,7 @@ def load_prompts(prompts_path='./input/prompts.json'):
 
     with open(prompts_path, 'r') as f:
         content = f.read()
-        loaded_prompts = json.loads(content)
-
-    prompts = []
-    for prompt in loaded_prompts:
-        prompts.append(
-            {
-                'role': 'user',
-                'content': prompt
-            },
-        )
+        prompts = json.loads(content)
 
     return prompts
 
@@ -66,6 +57,10 @@ def gpt_from_file(apply_context=True,
     ]
 
     for prompt in prompts:
+        messages.append(
+            {'role': 'user', 'content': prompt}
+        )
+
         # getting answer
         answer, messages = gpt_answer(
             messages=messages,
