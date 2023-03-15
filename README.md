@@ -1,4 +1,10 @@
+[![GitHub license](https://img.shields.io/github/license/microsoft/ML-For-Beginners.svg)](https://github.com/gprzy/chatgpt-api/blob/main/LICENSE)
+
 # ChatGPT API Integration
+
+<div align="center">
+    <image src="https://github.com/gprzy/chatgpt-api/blob/main/assets/chatgpt.svg" width=20%>
+</div>
 
 💬 An API integration for ChatGPT, accepting input files with prompts and personalized configurations.
 
