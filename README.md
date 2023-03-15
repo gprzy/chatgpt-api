@@ -39,5 +39,5 @@ The response will be:
 
 ### Making a POST
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"role": "user", "content": "What is the speed of light?"}' http://localhost:5000/posts
+curl -X POST -H "Content-Type: application/json" -d '[{"role": "user", "content": "What is the speed of light?"}]' http://localhost:5000/chatgpt
 ```
