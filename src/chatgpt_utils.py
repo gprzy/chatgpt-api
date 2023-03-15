@@ -59,7 +59,8 @@ def gpt_answer(messages,
 
 def gpt_from_file(apply_context=True,
                   output_terminal=False,
-                  output_file=False):
+                  output_file=None,
+                  model='gpt-3.5-turbo'):
     prompts = load_prompts()
 
     print(f'{Colors.HEADER}[PROCESS STARTED]{Colors.ENDC}')
@@ -78,7 +79,8 @@ def gpt_from_file(apply_context=True,
         # getting answer
         answer, messages = gpt_answer(
             messages=messages,
-            apply_context=apply_context
+            apply_context=apply_context,
+            model=model
         )
 
         if output_terminal:
@@ -95,7 +97,8 @@ def gpt_from_file(apply_context=True,
         if output_file:
             save_to_file(
                 prompt=prompt,
-                answer=answer
+                answer=answer,
+                output_file=output_file
             )
 
         # if context is not applied,
@@ -115,7 +118,8 @@ def gpt_from_file(apply_context=True,
 
 def gpt_interactive(apply_context=True,
                     output_terminal=True,
-                    output_file=None):
+                    output_file=None,
+                    model='gpt-3.5-turbo'):
     print(f'{Colors.HEADER}[PROCESS STARTED]{Colors.ENDC}')
 
     print(
@@ -149,7 +153,8 @@ def gpt_interactive(apply_context=True,
             # getting answer
             answer, messages = gpt_answer(
                 messages=messages,
-                apply_context=apply_context
+                apply_context=apply_context,
+                mdel=model
             )
 
             print(f'\n{Colors.WARNING}[Answer]{Colors.ENDC}')
@@ -157,7 +162,11 @@ def gpt_interactive(apply_context=True,
             print(answer)
 
             if output_file:
-                pass
+                save_to_file(
+                    prompt=prompt,
+                    answer=answer,
+                    output_file=output_file
+                )
 
             # if context is not applied,
             # messages is restarted

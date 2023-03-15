@@ -1,0 +1,14 @@
+[
+    {
+        "prompt": "Can you tell me how many days have in each month of the year?",
+        "answer": "Sure, here's a list of the number of days in each month of the year:\n\n- January: 31 days\n- February: 28 days (or 29 in a leap year)\n- March: 31 days\n- April: 30 days\n- May: 31 days\n- June: 30 days\n- July: 31 days\n- August: 31 days\n- September: 30 days\n- October: 31 days\n- November: 30 days\n- December: 31 days\n\nI hope that helps!"
+    },
+    {
+        "prompt": "How many seconds have in one year?",
+        "answer": "The number of seconds in one year depends on whether it is a regular year or a leap year. A regular year has 365 days while a leap year has 366 days. \n\nTo calculate the number of seconds in a regular year, we can multiply the number of seconds in a minute (60) by the number of minutes in an hour (60) to get the number of seconds in an hour (3600). Then we multiply that by the number of hours in a day (24) to get the number of seconds in a day (86,400). Finally, we multiply that by the number of days in a year (365):\n\n86,400 seconds/day x 365 days = 31,536,000 seconds/year\n\nTherefore, a regular year has 31,536,000 seconds.\n\nOn the other hand, a leap year has 366 days. In a leap year, we have an additional day, which is February 29. Therefore, the number of seconds in a leap year is:\n\n86,400 seconds/day x 366 days = 31,622,400 seconds/year\n\nTherefore, a leap year has 31,622,400 seconds."
+    },
+    {
+        "prompt": "What is the speed of light?",
+        "answer": "The speed of light is approximately 299,792,458 meters per second (or about 186,282 miles per second) in a vacuum, according to the scientific definition. It is denoted by the symbol \"c\" and is considered a fundamental physical constant. It is the maximum speed at which energy or information can be transmitted in the universe. The speed of light is constant, irrespective of the speed or direction of the observer, and helps to explain many fundamental aspects of nature, including the behavior of electromagnetic radiation, the stability of atoms, and the nature of space and time."
+    }
+]
