@@ -12,8 +12,8 @@ parser = argparse.ArgumentParser(description='ChatGPT API interface')
 
 parser.add_argument(
     '--with_context', '-c', 
-    action='store_const', 
-    const=True, 
+    action='store_const',
+    const=True,
     default=True
 )
 

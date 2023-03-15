@@ -1,5 +1,6 @@
 import json
 import openai
+from src.colors import Colors
 
 
 def load_prompts(prompts_path='./input/prompts.json'):
@@ -14,9 +15,25 @@ def load_prompts(prompts_path='./input/prompts.json'):
     return prompts
 
 
-def save_to_file(output_file='./output/gpt_answers.json'):
+def save_to_file(prompt,
+                 answer,
+                 output_file='./output/gpt_answers.json'):
+    try:
+        with open(output_file, 'r') as f:
+            content = f.read()
+            content = json.loads(content)
+
+    except FileNotFoundError:
+        content = []
+
     with open(output_file, 'w') as f:
-        pass
+        insertion = {
+            'prompt': prompt,
+            'answer': answer
+        }
+
+        content.append(insertion)
+        f.write(json.dumps(content))
 
 
 def gpt_answer(messages, 
@@ -31,10 +48,7 @@ def gpt_answer(messages,
 
     if apply_context:
         messages.append(
-            {
-                'role': 'assistant',
-                'content': answer
-            }
+            {'role': 'assistant', 'content': answer}
         )
 
         return answer, messages
@@ -44,10 +58,11 @@ def gpt_answer(messages,
 
 
 def gpt_from_file(apply_context=True,
-                  output_terminal=False):
+                  output_terminal=False,
+                  output_file=False):
     prompts = load_prompts()
 
-    print('[PROCESS STARTED]')
+    print(f'{Colors.HEADER}[PROCESS STARTED]{Colors.ENDC}')
 
     messages = [
         {
@@ -57,9 +72,8 @@ def gpt_from_file(apply_context=True,
     ]
 
     for prompt in prompts:
-        messages.append(
-            {'role': 'user', 'content': prompt}
-        )
+        message = {'role': 'user', 'content': prompt}
+        messages.append(message)
 
         # getting answer
         answer, messages = gpt_answer(
@@ -70,15 +84,19 @@ def gpt_from_file(apply_context=True,
         if output_terminal:
             print('\n' + '-'*80)
 
-            print(f'[Question]')
-            print(f'>> You:')
+            print(f'{Colors.WARNING}[Question]{Colors.ENDC}')
+            print(f'{Colors.OKBLUE}>> You:{Colors.ENDC}')
             print(prompt)
 
-            print(f'\n[Answer]')
-            print(f'>> GPT:')
+            print(f'\n{Colors.WARNING}[Answer]{Colors.ENDC}')
+            print(f'{Colors.OKGREEN}>> GPT:{Colors.ENDC}')
             print(answer)
-        else:
-            pass
+        
+        if output_file:
+            save_to_file(
+                prompt=prompt,
+                answer=answer
+            )
 
         # if context is not applied,
         # messages is restarted
@@ -92,13 +110,17 @@ def gpt_from_file(apply_context=True,
         
         continue
 
-    print('\n[PROCESS FINISHED!]')
+    print(f'\n{Colors.HEADER}[PROCESS FINISHED!]{Colors.ENDC}')
 
 
 def gpt_interactive(apply_context=True,
+                    output_terminal=True,
                     output_file=None):
-    print('[PROCESS STARTED]')
-    print('Press <q> or <quit> to exit')
+    print(f'{Colors.HEADER}[PROCESS STARTED]{Colors.ENDC}')
+
+    print(
+        f'Press {Colors.WARNING}<q>{Colors.ENDC} or {Colors.WARNING}<quit>{Colors.ENDC} to exit'
+    )
 
     messages = [
         {
@@ -110,11 +132,11 @@ def gpt_interactive(apply_context=True,
     while True:
         print('\n' + '-'*80)
 
-        print(f'[Question]')
-        prompt = input('>> You:\n')
+        print(f'{Colors.WARNING}[Question]{Colors.ENDC}')
+        prompt = input(f'{Colors.OKBLUE}>> You:{Colors.ENDC}\n')
 
         if prompt == 'q' or prompt == 'quit':
-            print('\nExiting...')
+            print(f'\n{Colors.FAIL}Exiting...{Colors.ENDC}')
             break
         else:
             messages.append(
@@ -130,8 +152,8 @@ def gpt_interactive(apply_context=True,
                 apply_context=apply_context
             )
 
-            print(f'\n[Answer]')
-            print(f'>> GPT:')
+            print(f'\n{Colors.WARNING}[Answer]{Colors.ENDC}')
+            print(f'{Colors.OKGREEN}>> GPT:{Colors.ENDC}')
             print(answer)
 
             if output_file:
@@ -149,4 +171,4 @@ def gpt_interactive(apply_context=True,
             
             continue
 
-    print('\n[PROCESS FINISHED!]')
+    print(f'\n{Colors.HEADER}[PROCESS FINISHED!]{Colors.ENDC}')
